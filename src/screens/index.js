@@ -3,7 +3,7 @@ import WelcomeScreen from "./WelcomeScreen";
 import MapScreen from "./MapScreen";
 import DeckScreen from "./DeckScreen";
 import ReviewScreen from "./ReviewScreen";
-import SettingshScreen from "./SettingsScreen";
+import SettingsScreen from "./SettingsScreen";
 
 export {
   AuthScreen,
@@ -11,5 +11,5 @@ export {
   MapScreen,
   DeckScreen,
   ReviewScreen,
-  SettingshScreen
+  SettingsScreen
 };

@@ -1,20 +1,35 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
-import { createBottomTabNavigator } from "react-navigation";
+import { TabNavigator, StackNavigator } from "react-navigation";
 
-import { AuthScreen, WelcomeScreen } from "./screens";
+import {
+  AuthScreen,
+  WelcomeScreen,
+  MapScreen,
+  DeckScreen,
+  ReviewScreen,
+  SettingsScreen
+} from "./screens";
 
 export default class App extends Component {
   render() {
-    const MainNavigator = createBottomTabNavigator({
+    const MainNavigator = TabNavigator({
       welcome: { screen: WelcomeScreen },
-      auth: { screen: AuthScreen }
+      auth: { screen: AuthScreen },
+      main: {
+        screen: TabNavigator({
+          map: { screen: MapScreen },
+          deck: { screen: DeckScreen },
+          review: {
+            screen: StackNavigator({
+              review: { screen: ReviewScreen },
+              settings: { screen: SettingsScreen }
+            })
+          }
+        })
+      }
     });
 
-    return (
-      <View>
-        <WelcomeScreen />
-      </View>
-    );
+    return <MainNavigator />;
   }
 }
