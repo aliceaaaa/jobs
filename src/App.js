@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
 import { TabNavigator, StackNavigator } from "react-navigation";
+import { Provider } from "react-redux";
+import store from "./store";
 
 import {
   AuthScreen,
@@ -11,7 +12,7 @@ import {
   SettingsScreen
 } from "./screens";
 
-export default class App extends Component {
+class App extends Component {
   render() {
     const MainNavigator = TabNavigator({
       welcome: { screen: WelcomeScreen },
@@ -30,6 +31,12 @@ export default class App extends Component {
       }
     });
 
-    return <MainNavigator />;
+    return (
+      <Provider store={store}>
+        <MainNavigator />
+      </Provider>
+    );
   }
 }
+
+export default App;
