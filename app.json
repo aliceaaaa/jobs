@@ -1,4 +1,8 @@
 {
-  "name": "jobs",
-  "displayName": "jobs"
+  "expo": {
+    "name": "jobs",
+    "slug": "jobs",
+    "sdkVersion": "23.0.0",
+    "privacy": "public"
+  }
 }
