@@ -72,6 +72,20 @@ import com.android.build.OutputFile
  * ]
  */
 
+
+
+// This block encapsulates custom properties and makes them available to all
+// modules in the project.
+ext {
+    buildToolsVersion = "27.0.3"
+    minSdkVersion = 16
+    compileSdkVersion = 27
+    targetSdkVersion = 26
+    supportLibVersion = "27.1.1"
+    googlePlayServicesVersion = "15.0.1"
+    androidMapsUtilsVersion = "0.5+"
+}
+
 project.ext.react = [
     entryFile: "index.js"
 ]
@@ -137,9 +151,11 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-maps')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation project(':react-native-maps')
 }
 
 // Run this once to be able to run the application with BUCK
